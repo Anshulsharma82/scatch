@@ -1,0 +1,45 @@
+userModel
+- fullName
+- email
+- password
+- cart - array
+- isAdmin - boolean
+- orders - array
+- contactNumber - number
+- picture - db
+
+cart: {
+    type: Array,
+    default: []
+} OR []
+
+--------------------------------------------
+productModel
+- image
+- name
+- price - number
+- discount
+-bgColor - string
+- panelColor
+- textColor
+
+discount: {
+    default: 0
+}
+
+-----------------------------------------------
+ownerModel
+
+fullName,
+email,
+password,
+products,
+picture,
+gstin
+-------------------------------------------------
+
+mongoose-connection.js > export krna hai mongoose.connecton
+
+ownerRouter - "/"
+userRouter - "/"
+productRouter - "/"

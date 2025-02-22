@@ -1,11 +1,12 @@
 const mongoose = require("mongoose")
+const dbgr = require("debug")("development:mongoose");
 
 async function dbConnect() {
     try {
-        const connectionString = 'mongodb+srv://anshulsharma4445:dO1ovHaiV5ochk0f@cluster0.5bpj4.mongodb.net/scatchDemo?retryWrites=true&w=majority&appName=Cluster0'
+        const connectionString = process.env.MONGO_DB_URI
         await mongoose.connect(connectionString)
+        dbgr("DB connected debug!")
         console.log("DB Connected!")
-        return db
     } catch (err) {
         console.log(err)
     }

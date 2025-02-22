@@ -43,3 +43,48 @@ mongoose-connection.js > export krna hai mongoose.connecton
 ownerRouter - "/"
 userRouter - "/"
 productRouter - "/"
+
+--------------------------------------------------
+set environment variable through command line to development (NODE_ENV) process.env.NODE_ENV
+setx NODE_ENV development
+
+--------------------------------------------------------------
+config > development.json > {"key": "value"} 
+npm i config > config.get("keyName")
+
+
+admin.ejs
+--------------------------------------------------------------
+
+ownerRoute > for development environment create "/create" route, if doc greater than 0 in owner collection than return error with status code 500 and else create a document with fullName, email and password.
+
+---------------------------------------------------------------
+copied ejs and images file from google drive page.
+
+-----------------------------------------------------------------
+
+tailwindCss :- border-[1px], flex, items-center, capitalize.
+    Resarch: justify-center, autocomplete="off" in form, 
+
+    <%- include('path of file') %> // to include header and footer of a page in ejs files.
+
+------------------------------------------------------------------------------
+isAdmin flag remove krna hai.................
+userRouter.js mein > "/" pr index render krna hai.......
+- "/register"  - create new user (fullName, email, password) - joi based validation lagani hai,password bcrypt krna hai, token set krna hai with the help of jsonwebtoken and cookie-parser, hum jwt mein expiresIn ka use bhi kr skte hai as a 3rd argument.
+
+- jwt token ka secret humein config mein key.js mein rkhna hai jiski value .env file se milegi
+- jwt generateToken ka code humein utilities mein generateJWT.js mein likhna hai....
+- users shouldn't have same email
+---------------------------------------
+LOGin route create krna hai user mien hi
+
+------------------------------------------------------------------------------
+
+2 new packages app.js mein express-session and flash and inse related thoda code add krna hai jaise resave, unitialize and one more thing.
+
+isLoggedIn bnana hai middleware mein wahan pr req.flash ka use krna hai, res.redirect ka bhi and req.user mein user ka sara data bhejna hai except password.
+
+sath mein "/" route mein req.flash("error") hoga toh humein index render krnte hue send krna hai
+
+ek new route bnaya hai index.js krke aur wahan se index ko render kr rhe hai 

@@ -8,7 +8,6 @@ const userSchema = mongoose.Schema({
     email: String,
     password: String,
     cart: [],
-    isAdmin: Boolean,
     orders: [],
     contact: Number,
     picture: String

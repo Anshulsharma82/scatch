@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/', async (req,res) => {
-    res.send("hey! It's working.")
-})
+const { registerUser, loginUser, logout } = require("../controllers/userController")
+
+router.post('/register', registerUser)
+router.post('/login', loginUser)
+router.get('/logout', logout)
 
 module.exports = router;

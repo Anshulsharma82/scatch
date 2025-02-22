@@ -1,0 +1,4 @@
+{
+    "MONGO_DB_URI": "mongodb+srv://anshulsharma4445:dO1ovHaiV5ochk0f@cluster0.5bpj4.mongodb.net/scatchDemo?retryWrites=true&w=majority&appName=Cluster0",
+    "JWT_SECRET": "token"
+}

@@ -88,3 +88,44 @@ isLoggedIn bnana hai middleware mein wahan pr req.flash ka use krna hai, res.red
 sath mein "/" route mein req.flash("error") hoga toh humein index render krnte hue send krna hai
 
 ek new route bnaya hai index.js krke aur wahan se index ko render kr rhe hai 
+
+-------------------------------------------------------------------------------
+
+isLoggedIn > .select("-password") - done
+
+routes > index > /shop pr shop waala page render krna hai and isLoggedIn middleware ka use krna hai  - done
+
+after login it should redirect to shop page - done
+
+Q.  login register agar success hai toh us case mein kya krna hai
+
+/owners/admin - (render krna hai createProducts waala page.) admin creating products ka page. Submit pr /products/create pr redirect krna hai 
+
+(/products/create) - form(multer) product create krna hai with the use of productModel and image upload krni hai. create flash message success, "product created success" and redirect to /owners/admin. All code will be in try catch...
+
+/owners/admin mein hum ek variable create krenge success jiski value flash message successs se aayegi and usein render krte hue bhej denge.
+
+createProucts waale ejs page mein humein flash message ko top mein display krwana hai ki product created success.
+
+productSchema mein Image ki type Buffer
+config > multer-config.js 
+{
+    upload using memoryStorage
+    const storage = multer.memoryStorage()
+    const upload = multer({ storage: storage })
+    export krna hai upload ko.
+}
+
+
+req.file.buffer
+
+/shop mein humein sabhi products find krne hai aur redirect krte hue send krne hai.
+
+----- shop.ejs mein --- 
+{
+1. flex-items start gap-5 waale div mein ek div ko shod kr baaki sabh delete krne hai. 
+2. humein products.forEach ka use krke internal div ko uske andar krna hai and real name and price ka use krna hai. bg-yellow-500 waale div mein ek img tag create krna hai. img tag ki class w-full h-full object-cover.
+3. img src mein "data:image/jpeg;base64, <%= product.image.toString('base64') %>
+4. img waale div ke niche waale div mein bg-[<%= product.panelColor %>] and same for textColor 
+5. bgColor waale flag ka bhi use krna hai forEach se niche jo div hai usmein.
+}

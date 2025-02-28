@@ -15,7 +15,9 @@ const registerUser = async (req, res) => {
         const { fullname, email, password } = req.body
         const user = await userModel.findOne({ email })
         if (user) {
-            return res.status(400).json({ msg: 'User already registered! Please login.' })
+            req.flash("error", 'User already registered! Please login.')
+            return res.status(400).redirect('/')
+            // return res.status(400).json({ msg: 'User already registered! Please login.' })
         }
 
         // hash the password
@@ -30,7 +32,7 @@ const registerUser = async (req, res) => {
 
         const token = generateJWT(createdUser)
         res.cookie("token", token)
-        res.status(201).json({ msg: 'user created successfully!' })
+        res.status(201).redirect("/shop")
 
     } catch (error) {
         console.log("Error in register API", error);
@@ -57,8 +59,9 @@ const loginUser = async (req, res) => {
 
         const token = generateJWT(user)
         res.cookie("token", token)
-        return res.status(200).json({ msg: 'You are logged in' })
+        return res.status(200).redirect('/shop')
     } catch (error) {
+        console.log(error)
         return res.status(500).json({ msg: 'Internal Server Error' })
     }
 }

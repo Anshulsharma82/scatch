@@ -34,7 +34,7 @@ app.use(flash())
 app.use('/', indexRouter)
 app.use('/users',userRouter)
 app.use('/owner', ownerRouter)
-app.use('/product', productRouter)
+app.use('/products', productRouter)
 
 app.listen(3000, () => {
     console.log('Server running on 3000');

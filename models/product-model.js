@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const postSchema = mongoose.Schema({
     image: {
-        type: String
+        type: Buffer
     },
     name: String,
     price: Number,
@@ -15,4 +15,4 @@ const postSchema = mongoose.Schema({
     textColor: String
 })
 
-module.exports = mongoose.model('post',postSchema)
+module.exports = mongoose.model('product',postSchema)
